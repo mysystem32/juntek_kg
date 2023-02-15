@@ -1,0 +1,22 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# log files
+*.log
+
+# vim
+*.swp
+
+# backups
+*.bak
+
+# setuptools ignore
+/dist
+/build
+/tmp
+*.egg-info/
+
+# git
+.git/
