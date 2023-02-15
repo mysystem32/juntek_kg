@@ -203,7 +203,8 @@ class JuntekKG:
         self.r50_message_count_batch = 0
         self.r51_message_count = 0
         self.soc_at_100_count = 0
-        self.prev_cumulative_Ah = 0 
+        self.prev_cumulative_Ah = 0
+        self.start_time = time.time()
         self.device = device
 
 
@@ -211,7 +212,9 @@ class JuntekKG:
         """ return settings dict """
         return self.juntek_setting
 
-    def calculate_enegry(self):
+    def calculate_energy(self):
+        """ calculate energy_in and energy_out
+        """
         now = time.time()
         seconds = time.time() - self.start_time
         self.start_time = now
@@ -226,7 +229,7 @@ class JuntekKG:
         self.juntek_sensor['energy_in'] = self.juntek_sensor_av['power_in'] * rate
         self.juntek_sensor['energy_out'] = self.juntek_sensor_av['power_out'] * rate
 
-        return
+        return 
         
 
     def get_sensors(self):
@@ -238,7 +241,7 @@ class JuntekKG:
             factor = JUNTEK_R50_DICT[name]['factor']
             result[name] = iround_sensor(factor, mv_avg.avg())
 
-        result.update(self.calculate_energy())
+        #result.update(self.calculate_energy())
 
         #result['SoC']=int(round(result['SoC'],0))
         result['time'] = time.strftime('%FT%T%z')
