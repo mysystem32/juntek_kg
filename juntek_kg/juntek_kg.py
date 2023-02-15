@@ -1,5 +1,7 @@
 """
-    Alberto da Silva - 10 April 2022
+    Author: Alberto da Silva - 10 April 2022
+    Version: 0.9
+    Description: Module to read & decode Juntek KG-F coulomb meter sensors via RS485 serial interface
     junteks / juntek / junce
     http://www.junteks.com/product/278218225
     KG140F coulometer meter that uses a SHUNT to
